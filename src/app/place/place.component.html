@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div class="title">Mirador de San Nicolás</div>
+    <div class="img" *ngFor="let route of routes">
+        <img [src]="route.url" alt="Image">
+    </div>
+    <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d-3.60122248445914!3d37.17850625401195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417"
+            width="450" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    <div class="stars">
+        <ul>
+            <li>
+                <mat-icon>star</mat-icon>
+            </li>
+            <li>
+                <mat-icon>star</mat-icon>
+            </li>
+            <li>
+                <mat-icon>star</mat-icon>
+            </li>
+            <li>
+                <mat-icon>star_half</mat-icon>
+            </li>
+            <li>
+                <mat-icon>star_border</mat-icon>
+            </li>
+        </ul>
+    </div>
+    <div class="comments">
+        <div class="comment" *ngFor="let comment of comments">
+            <div class="block-name">
+                <div class="image"><img [src]="comment.img_url"></div>
+                <div class="name">{{comment.name}}</div>
+                <div class="date">{{comment.date}}</div>
+            </div>
+
+            <div class="comment-text">{{comment.text}}</div>
+        </div>
+        <button mat-button color="primary">Añadir comentario</button>
+    </div>
+</div>
+

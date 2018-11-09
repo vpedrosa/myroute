@@ -1,0 +1,46 @@
+.img {
+  align-self: flex-start;
+}
+.container{
+  div{
+    margin: 0 auto;
+  }
+  text-align: center;
+}
+.title{
+  font-size: 3rem;
+}
+
+.stars{
+  ul{
+    list-style: none;
+    li{
+      display: inline-block;
+      margin-right:0.5rem;
+    }
+  }
+}
+
+.comment{
+  border: 1px solid gray;
+  border-left: none;
+  border-right: none;
+  padding: 1rem 0;
+  width:400px;
+  margin:0 auto;
+  .block-name{
+
+    .image{
+      display: inline-block;
+    }
+    .name{
+      display: inline-block;
+    }
+    .date{
+      font-size:0.7rem;
+    }
+  }
+  .comment-text{
+    font-size:1.1rem;
+  }
+}

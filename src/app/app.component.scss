@@ -1,12 +1,28 @@
-#img{
-  width:400px;
-  margin: 15% auto 0;
+.fill-remaining-space {
+  flex: 1 1 auto;
 }
 
-#image_container{
-  width:100%;
+.menu-icons {
+  a{
+    color:white;
+    &:hover{
+      text-decoration: none;
+      color:#F2F2F2;
+    }
+  }
+  mat-icon{
+    margin-right:1rem;
+  }
+}
+
+footer{
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  height:100%;
-  display: flex;
-  align-items: center;
+  ul{
+    list-style-type: none;
+    li{
+      display: inline-block;
+      margin-right:1rem;
+    }
+  }
 }
