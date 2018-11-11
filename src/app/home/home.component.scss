@@ -1,6 +1,60 @@
-.img {
-  align-self: flex-start;
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display'),
+  '../../mixins';
+
+.carousel-inner .carousel-item {
+  width: 100%;
+  height: 400px !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.container{
-  height:400px;
+.item-positioning {
+  background: no-repeat center center fixed;
 }
+
+.home-big-text{
+  margin: 2rem 0;
+  font-size:2.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.rounded-button{
+  display: inline-block;
+  background-color: #efefef;
+  padding:2rem;
+  @include border-radius(150px);
+  .overlay{
+    opacity: 0;
+    transition: .2s ease;
+    -webkit-transition: .2s ease;
+    background-color: #000;
+    width:112px;
+    height:112px;
+    position:absolute;
+    top:0;
+    margin-left:-32px;
+    @include border-radius(150px);
+    .text {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
+  &:first-child{
+    margin-right:1rem;
+  }
+  &:hover{
+    cursor: pointer;
+    .overlay{
+      opacity: .6;
+    }
+  }
+}
+

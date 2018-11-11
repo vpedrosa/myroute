@@ -6,8 +6,9 @@ import {RouteComponent} from './route/route.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'places', component: PlaceComponent },
-    { path: 'routes', component: RouteComponent },
+    { path: 'lugares', component: PlaceComponent },
+    { path: 'rutas', component: RouteComponent },
+    { path: 'perfil', component: RouteComponent },
 ];
 
 @NgModule({

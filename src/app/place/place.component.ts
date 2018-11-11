@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./place.component.scss']
 })
 export class PlaceComponent implements OnInit {
+    private stat
     private routes = [
         {url: 'https://place-hold.it/500x300'}
     ];

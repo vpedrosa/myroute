@@ -9,6 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {RouteComponent} from './route/route.component';
 import {NewCommentComponent} from './new-comment/new-comment.component';
 import {PlaceComponent} from './place/place.component';
+import { TruncatePipe } from './truncate.pipe';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {PlaceComponent} from './place/place.component';
         HomeComponent,
         RouteComponent,
         NewCommentComponent,
-        PlaceComponent
+        PlaceComponent,
+        TruncatePipe
     ],
     imports: [
         BrowserModule,

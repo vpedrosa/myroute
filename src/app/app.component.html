@@ -1,16 +1,27 @@
-<mat-toolbar color="primary">
-    <span>MyRoute</span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">MyRoute</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- This fills the remaining space of the current row -->
-    <span class="fill-remaining-space"></span>
-
-    <span class="menu-icons">
-        <a [routerLink]="'places'"><mat-icon>location_on</mat-icon></a>
-        <a [routerLink]="'routes'"><mat-icon>directions</mat-icon></a>
-        <a ><mat-icon>settings</mat-icon></a>
-    </span>
-</mat-toolbar>
-<router-outlet></router-outlet>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngFor="let menu_item of menu_items" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}" #rla="routerLinkActive">
+                <a class="nav-link" [routerLink]="menu_item.route">{{menu_item.text}} <span class="sr-only" *ngIf="rla.isActive">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 btn-outline-light" type="submit">Buscar</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
 <footer>
     <ul>
         <li>MyRoute &copy; 2018</li>

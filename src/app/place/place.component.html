@@ -9,23 +9,7 @@
             width="450" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
 
     <div class="stars">
-        <ul>
-            <li>
-                <mat-icon>star</mat-icon>
-            </li>
-            <li>
-                <mat-icon>star</mat-icon>
-            </li>
-            <li>
-                <mat-icon>star</mat-icon>
-            </li>
-            <li>
-                <mat-icon>star_half</mat-icon>
-            </li>
-            <li>
-                <mat-icon>star_border</mat-icon>
-            </li>
-        </ul>
+        <i *ngFor='let number of [1,2,3,4,5]' class="fa-star" [ngClass]="{fas:renderStar(number), far:!renderStar(number)}"></i>
     </div>
     <div class="comments">
         <div class="comment" *ngFor="let comment of comments">

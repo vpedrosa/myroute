@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./route.component.scss']
 })
 export class RouteComponent implements OnInit {
+    private star_number = 3;
     private routes = [
         {url: 'https://place-hold.it/500x300'}
     ];
@@ -17,6 +18,10 @@ export class RouteComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    renderStar(index: number) {
+            return (index <= this.star_number);
     }
 
 }
