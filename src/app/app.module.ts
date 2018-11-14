@@ -10,6 +10,9 @@ import {RouteComponent} from './route/route.component';
 import {NewCommentComponent} from './new-comment/new-comment.component';
 import {PlaceComponent} from './place/place.component';
 import { TruncatePipe } from './truncate.pipe';
+import { RouteListComponent } from './route-list/route-list.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { TruncatePipe } from './truncate.pipe';
         RouteComponent,
         NewCommentComponent,
         PlaceComponent,
-        TruncatePipe
+        TruncatePipe,
+        RouteListComponent,
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserModule,

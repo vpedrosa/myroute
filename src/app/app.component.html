@@ -21,9 +21,38 @@
 </nav>
 <div class="container">
     <router-outlet></router-outlet>
+    <div class="row mt-4">
+        <div class="col text-center">
+            <div class="rounded-button" [routerLink]="'rutas'">
+                <div class="overlay"><div class="text">Lugares</div></div>
+                <img src="/assets/img/place.svg">
+            </div>
+            <div class="rounded-button" [routerLink]="'rutas'">
+                <img src="/assets/img/waypoint.svg">
+                <div class="overlay"><div class="text">Rutas</div></div>
+            </div>
+        </div>
+    </div>
 </div>
 <footer>
-    <ul>
-        <li>MyRoute &copy; 2018</li>
-    </ul>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h3>Redes sociales</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col social-links">
+                    <a href="https://twitter.com"><i class="fab fa-twitter fa-2x mr-2"></i></a>
+                    <a href="https://facebook.com"><i class="fab fa-facebook fa-2x mr-2"></i></a>
+                    <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h3>Ayúdanos a mejorar</h3>
+            <img src="/assets/img/garvam-logo.png" alt="Garvam Logo" style="width:150px;">
+        </div>
+    </div>
 </footer>

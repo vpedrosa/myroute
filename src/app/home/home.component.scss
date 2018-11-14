@@ -19,42 +19,5 @@
   font-family: 'Playfair Display', serif;
 }
 
-.rounded-button{
-  display: inline-block;
-  background-color: #efefef;
-  padding:2rem;
-  @include border-radius(150px);
-  .overlay{
-    opacity: 0;
-    transition: .2s ease;
-    -webkit-transition: .2s ease;
-    background-color: #000;
-    width:112px;
-    height:112px;
-    position:absolute;
-    top:0;
-    margin-left:-32px;
-    @include border-radius(150px);
-    .text {
-      color: white;
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-  }
-  &:first-child{
-    margin-right:1rem;
-  }
-  &:hover{
-    cursor: pointer;
-    .overlay{
-      opacity: .6;
-    }
-  }
-}
+
 
