@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    private routes = [
+    routes = [
         {
             url: 'http://www.turgranada.es/wp-content/blogs.dir/2/files_mf/cache/th_6e686d7da0ecdfd10234ad722b4d943f_acequia-alicun2.jpg',
             title: 'Acequia del Toril y dólmenes de Alicún',

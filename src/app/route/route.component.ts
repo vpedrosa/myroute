@@ -6,16 +6,16 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./route.component.scss']
 })
 export class RouteComponent implements OnInit {
-    private star_number = 3;
-    private route_images = [
+    star_number = 3;
+    route_images = [
         {
             url: 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg',
             title: 'Título de imagen',
             description: 'Descripción de la imagen'
         }
     ];
-    private route_image = 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg';
-    private route_description = 'La Ruta del Califato une las capitales del al-Andalus califal y nazarí siguiendo el itinerario que unía' +
+    route_image = 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg';
+    route_description = 'La Ruta del Califato une las capitales del al-Andalus califal y nazarí siguiendo el itinerario que unía' +
         ' en el siglo XII Córdoba y Granada. Es una cadena que eslabona alcazabas, castillos cristianos, fortalezas en parte árabes y en' +
         ' parte cristianas, erguidas en lo más alto de los cerros.\n' +
         '\n' +
@@ -23,7 +23,7 @@ export class RouteComponent implements OnInit {
         ' y agrestes pendientes, junto con praderas y riberas por donde realizar tranquilas excursiones, siguiendo antiguos senderos, que' +
         ' conducen a los más apartados rincones.';
 
-    private comments = [
+    comments = [
         {
             img_url: 'https://avatars.dicebear.com/v2/female/469710a325c8f47b6a4198099f1496c7.svg',
             text: 'El sitio me ha gustado mucho',

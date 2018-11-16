@@ -6,8 +6,8 @@ import {NavigationEnd, Router} from '@angular/router';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    private menu_items = [
+export class AppComponent implements OnInit {
+    menu_items = [
         {route: '/', text: 'Home'},
         {route: '/rutas', text: 'Lugares'},
         {route: '/rutas', text: 'Rutas'},

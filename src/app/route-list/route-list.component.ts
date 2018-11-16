@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RouteListComponent implements OnInit {
 
-    private routes = [
+    routes = [
         {
             src: 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg',
             title: 'Ruta del califato',

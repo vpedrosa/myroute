@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./place.component.scss']
 })
 export class PlaceComponent implements OnInit {
-    private stat
-    private routes = [
+    routes = [
         {url: 'https://place-hold.it/500x300'}
     ];
-    private comments = [
+    comments = [
         {img_url: 'https://place-hold.it/50x50', text: 'El mirador de San Nicolás es bonito', name: 'Antonio Martín', date: '18/03/2018'}
     ];
 
