@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
         {route: '/', text: 'Home'},
         {route: '/rutas', text: 'Lugares'},
         {route: '/rutas', text: 'Rutas'},
-        {route: '/proponer-ruta', text: 'Proponer ruta'},
+        {route: '/propon-tu', text: 'Propón tú'},
         {route: '/login', text: 'Perfil'},
     ];
 

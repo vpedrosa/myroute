@@ -6,6 +6,8 @@ import {RouteComponent} from './route/route.component';
 import {RouteListComponent} from './route-list/route-list.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {ProposalComponent} from './proposal/proposal.component';
+import {RouteProposalComponent} from './route-proposal/route-proposal.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -15,6 +17,8 @@ const routes: Routes = [
     { path: 'perfil', component: RouteComponent },
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegisterComponent },
+    { path: 'propon-tu', component: ProposalComponent },
+    { path: 'nueva-ruta', component: RouteProposalComponent },
 ];
 
 @NgModule({

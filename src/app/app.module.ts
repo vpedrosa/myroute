@@ -13,6 +13,9 @@ import { TruncatePipe } from './truncate.pipe';
 import { RouteListComponent } from './route-list/route-list.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProposalComponent } from './proposal/proposal.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RouteProposalComponent } from './route-proposal/route-proposal.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { RegisterComponent } from './register/register.component';
         TruncatePipe,
         RouteListComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        ProposalComponent,
+        ProfileComponent,
+        RouteProposalComponent
     ],
     imports: [
         BrowserModule,
