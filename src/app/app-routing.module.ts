@@ -8,12 +8,14 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProposalComponent} from './proposal/proposal.component';
 import {RouteProposalComponent} from './route-proposal/route-proposal.component';
+import {PlaceListComponent} from './place-list/place-list.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'lugares', component: PlaceComponent },
+    { path: 'lugares', component: PlaceListComponent },
+    { path: 'lugares/:id', component: PlaceComponent },
     { path: 'rutas', component: RouteListComponent },
-    { path: 'rutas/ruta-del-califato', component: RouteComponent },
+    { path: 'rutas/:id', component: RouteComponent },
     { path: 'perfil', component: RouteComponent },
     { path: 'login', component: LoginComponent },
     { path: 'registro', component: RegisterComponent },

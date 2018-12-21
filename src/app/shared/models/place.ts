@@ -1,52 +1,28 @@
 import {User} from './user';
 
 export class Place {
-    private _id: string;
+    private _id: number;
     private _name: string;
+    private _short_description: string;
     private _description: string;
-    private _img: string;
-    private _creator: User;
-    private _comments: Comment[];
+    private _image_url: string;
+    private _created_by: User;
 
-    constructor(id: string, name: string, description: string, img: string, creator: User, comments: Comment[]) {
+    constructor(id: number, name: string, short_description: string, description: string, image_url: string, created_by?: User = null) {
         this._id = id;
         this._name = name;
+        this._short_description = short_description;
         this._description = description;
-        this._img = img;
-        this._creator = creator;
-        this._comments = comments;
+        this._image_url = image_url;
+        this._created_by = created_by;
     }
 
-    get description(): string {
-        return this._description;
+    get id(): number {
+        return this._id;
     }
 
-    set description(value: string) {
-        this._description = value;
-    }
-
-    get img(): string {
-        return this._img;
-    }
-
-    set img(value: string) {
-        this._img = value;
-    }
-
-    get creator(): User {
-        return this._creator;
-    }
-
-    set creator(value: User) {
-        this._creator = value;
-    }
-
-    get comments(): Comment[] {
-        return this._comments;
-    }
-
-    set comments(value: Comment[]) {
-        this._comments = value;
+    set id(value: number) {
+        this._id = value;
     }
 
     get name(): string {
@@ -57,11 +33,35 @@ export class Place {
         this._name = value;
     }
 
-    get id(): string {
-        return this._id;
+    get short_description(): string {
+        return this._short_description;
     }
 
-    set id(value: string) {
-        this._id = value;
+    set short_description(value: string) {
+        this._short_description = value;
+    }
+
+    get description(): string {
+        return this._description;
+    }
+
+    set description(value: string) {
+        this._description = value;
+    }
+
+    get image_url(): string {
+        return this._image_url;
+    }
+
+    set image_url(value: string) {
+        this._image_url = value;
+    }
+
+    get created_by(): User {
+        return this._created_by;
+    }
+
+    set created_by(value: User) {
+        this._created_by = value;
     }
 }

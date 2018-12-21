@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatGridListModule} from '@angular/material';
 
@@ -16,6 +16,11 @@ import { RegisterComponent } from './register/register.component';
 import { ProposalComponent } from './proposal/proposal.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouteProposalComponent } from './route-proposal/route-proposal.component';
+import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
+import {ApiService} from './shared/services/api.service';
+import {RoutesService} from './shared/services/routes.service';
+import {AuthService} from './shared/services/auth.service';
+import { PlaceListComponent } from './place-list/place-list.component';
 
 
 @NgModule({
@@ -31,7 +36,8 @@ import { RouteProposalComponent } from './route-proposal/route-proposal.componen
         RegisterComponent,
         ProposalComponent,
         ProfileComponent,
-        RouteProposalComponent
+        RouteProposalComponent,
+        PlaceListComponent
     ],
     imports: [
         BrowserModule,
@@ -41,9 +47,16 @@ import { RouteProposalComponent } from './route-proposal/route-proposal.componen
         MatButtonModule,
         MatCheckboxModule,
         MatIconModule,
-        MatGridListModule
+        MatGridListModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [
+        HttpClient,
+        ApiService,
+        RoutesService,
+        AuthService,
+        {provide: LOCALE_ID, useValue: 'es'}
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

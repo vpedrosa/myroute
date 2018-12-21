@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {RoutesService} from '../shared/services/routes.service';
+import {Route} from '../shared/models/route';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-route',
@@ -6,7 +9,10 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./route.component.scss']
 })
 export class RouteComponent implements OnInit {
+    route_id: number = null;
+    route: Route = null;
     star_number = 3;
+    private sub: any;
     route_images = [
         {
             url: 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg',
@@ -14,14 +20,6 @@ export class RouteComponent implements OnInit {
             description: 'Descripción de la imagen'
         }
     ];
-    route_image = 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg';
-    route_description = 'La Ruta del Califato une las capitales del al-Andalus califal y nazarí siguiendo el itinerario que unía' +
-        ' en el siglo XII Córdoba y Granada. Es una cadena que eslabona alcazabas, castillos cristianos, fortalezas en parte árabes y en' +
-        ' parte cristianas, erguidas en lo más alto de los cerros.\n' +
-        '\n' +
-        'Se pueden admirar además los bellos y accidentados paisajes del Parque Natural de las Sierras Subbéticas Cordobesas, fuertes' +
-        ' y agrestes pendientes, junto con praderas y riberas por donde realizar tranquilas excursiones, siguiendo antiguos senderos, que' +
-        ' conducen a los más apartados rincones.';
 
     comments = [
         {
@@ -40,10 +38,24 @@ export class RouteComponent implements OnInit {
         },
     ];
 
-    constructor() {
+    constructor(private _route_service: RoutesService, private _route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.sub = this._route.params.subscribe(params => {
+            this.route_id = +params['id'];
+            this.getRoute();
+        });
+    }
+
+    getRoute() {
+        this._route_service.getRoute(this.route_id).subscribe(
+            result => {
+                this.route = new Route(result.id, result.name, result.short_description, result.description, result.image_url);
+            },
+            error => {
+                console.log('error.', error);
+            });
     }
 
     renderStar(index: number, stars: number) {
