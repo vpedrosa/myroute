@@ -8,7 +8,7 @@ import {Place} from '../shared/models/place';
 })
 export class RouteProposalComponent implements OnInit {
 
-  private places: Place[] = [];
+  places: Place[] = [];
   constructor() { }
 
   ngOnInit() {
