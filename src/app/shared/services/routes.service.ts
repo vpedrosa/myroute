@@ -11,7 +11,6 @@ export class RoutesService {
     }
 
     getRoutes() {
-        this.routes = [];
         return this._api_service.get('routes');
     }
 

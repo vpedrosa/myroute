@@ -22,11 +22,15 @@ export class RouteListComponent implements OnInit {
         this._route_service.getRoutes().subscribe(
             result => {
                 for (const route of result.data) {
-                    this.routes.push(new Route(route.id, route.name, route.short_description, route.description, route.image_url));
+                    this.routes.push(new Route(route.id, route.name, route.short_description, route.description, route.image_url, route.valuation));
                 }
             },
             error => {
                 console.log('error.', error);
             });
+    }
+
+    renderStar(index: number, stars: number) {
+        return (index <= stars);
     }
 }

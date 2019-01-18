@@ -18,6 +18,10 @@
                 <img class="card-img-top" [src]="route.image_url" alt="Imagen de la ruta">
                 <div class="card-body">
                     <h5 class="card-title">{{ route.name }}</h5>
+                    <div class="stars">
+                        <i *ngFor='let number of [1,2,3,4,5]' class="fa-star"
+                           [ngClass]="{fas:renderStar(number, route.valuation), far:!renderStar(number, route.valuation)}"></i> ({{route?.valuation| number:'1.2':'es'}})
+                    </div>
                     <p class="card-text">{{ route.short_description }}</p>
                     <button class="btn btn-primary" [routerLink]="['/rutas',route.id]">Ver ruta</button>
                 </div>

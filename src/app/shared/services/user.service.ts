@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {ApiService} from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+    constructor(private _api_service: ApiService) {
+    }
+
+    register(value: any) {
+        return this._api_service.post('register', value);
+    }
 }

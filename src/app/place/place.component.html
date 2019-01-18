@@ -46,21 +46,23 @@
                             <h5 class="card-title">Valoraciones</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Estas on las valoraciones de los usuarios que han realizado la ruta</h6>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item" *ngFor="let comment of comments">
+                                <li class="list-group-item" *ngFor="let review of reviews">
                                     <div class="row">
                                         <div class="col col-md-4">
-                                            <div class="image"><img [src]="comment.img_url" class="rounded"></div>
+                                            <div class="image" ><img [src]="review.user?.avatar_url" class="rounded" style="width:75px; height: 75px;"></div>
                                         </div>
                                         <div class="col col-md-8">
-                                            <div class="name font-weight-bold">{{comment.name}}</div>
+                                            <div class="name font-weight-bold">{{review?.user?.name}}</div>
                                             <div class="stars">
+                                                <i *ngFor='let number of [1,2,3,4,5]' class="fa-star"
+                                                   [ngClass]="{fas:renderStar(number, review.valuation), far:!renderStar(number, review.valuation)}"></i>
                                             </div>
-                                            <div class="date font-italic">{{comment.date}}</div>
+                                            <div class="date font-italic">{{review.created_at.toLocaleString()}}</div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="text">{{comment.text}}</div>
+                                            <div class="text">{{review.comment}}</div>
                                         </div>
                                     </div>
                                 </li>

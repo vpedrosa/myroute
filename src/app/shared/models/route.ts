@@ -9,10 +9,12 @@ export class Route {
     private _image_url: string;
     private _created_by: User;
     private _places: Place[];
+    private _valuation: number;
 
     constructor(id: number,
                 name: string,
-                short_description: string, description: string, image_url: string, created_by: User = null, places: Place[] = []) {
+                short_description: string, description: string, image_url: string,
+                valuation: number, created_by: User = null, places: Place[] = []) {
         this._id = id;
         this._name = name;
         this._short_description = short_description;
@@ -20,8 +22,17 @@ export class Route {
         this._image_url = image_url;
         this._created_by = created_by;
         this._places = places;
+        this._valuation = valuation;
     }
 
+
+    get valuation(): number {
+        return this._valuation;
+    }
+
+    set valuation(value: number) {
+        this._valuation = value;
+    }
 
     get id(): number {
         return this._id;

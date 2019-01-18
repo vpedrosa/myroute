@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RoutesService} from '../shared/services/routes.service';
 import {Route} from '../shared/models/route';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Review} from '../shared/models/review';
+import {User} from '../shared/models/user';
 
 @Component({
     selector: 'app-route',
@@ -10,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class RouteComponent implements OnInit {
     route_id: number = null;
+    reviews: Review [] = [];
     route: Route = null;
     star_number = 3;
     private sub: any;
@@ -51,7 +54,11 @@ export class RouteComponent implements OnInit {
     getRoute() {
         this._route_service.getRoute(this.route_id).subscribe(
             result => {
-                this.route = new Route(result.id, result.name, result.short_description, result.description, result.image_url);
+                this.route = new Route(result.id, result.name, result.short_description, result.description, result.image_url, result.valuation);
+                for (const review of result.reviews) {
+                    this.reviews.push(new Review(review.id, review.comment, review.valuation, new Date(review.created_at), review.user_id,
+                        new User(review.user.id, review.user.name, review.user.email, review.user.avatar_url, '')));
+                }
             },
             error => {
                 console.log('error.', error);

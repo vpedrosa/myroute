@@ -7,14 +7,25 @@ export class Place {
     private _description: string;
     private _image_url: string;
     private _created_by: User;
+    private _valuation: number;
 
-    constructor(id: number, name: string, short_description: string, description: string, image_url: string, created_by?: User = null) {
+    constructor(id: number, name: string, short_description: string, description: string, image_url: string, valuation: number, created_by: User = null) {
         this._id = id;
         this._name = name;
         this._short_description = short_description;
         this._description = description;
         this._image_url = image_url;
         this._created_by = created_by;
+        this._valuation = valuation;
+    }
+
+
+    get valuation(): number {
+        return this._valuation;
+    }
+
+    set valuation(value: number) {
+        this._valuation = value;
     }
 
     get id(): number {

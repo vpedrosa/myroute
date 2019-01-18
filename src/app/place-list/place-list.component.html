@@ -18,6 +18,10 @@
         <img class="card-img-top" [src]="place.image_url" alt="Imagen del lugar">
         <div class="card-body">
           <h5 class="card-title">{{ place.name }}</h5>
+          <div class="stars">
+            <i *ngFor='let number of [1,2,3,4,5]' class="fa-star"
+               [ngClass]="{fas:renderStar(number, place.valuation), far:!renderStar(number, place.valuation)}"></i> ({{place?.valuation| number:'1.2':'es'}})
+          </div>
           <p class="card-text">{{ place.short_description }}</p>
           <button class="btn btn-primary" [routerLink]="['/lugares',place.id]">Ver ruta</button>
         </div>
