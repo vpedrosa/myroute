@@ -1,27 +1,80 @@
 <div class="container">
-
-    <div class="title">Mirador de San Nicolás</div>
-    <div class="img" *ngFor="let route of routes">
-        <img [src]="route.url" alt="Image">
-    </div>
-    <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d-3.60122248445914!3d37.17850625401195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417"
-            width="450" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-    <div class="stars">
-        <i *ngFor='let number of [1,2,3,4,5]' class="fa-star" [ngClass]="{fas:renderStar(number), far:!renderStar(number)}"></i>
-    </div>
-    <div class="comments">
-        <div class="comment" *ngFor="let comment of comments">
-            <div class="block-name">
-                <div class="image"><img [src]="comment.img_url"></div>
-                <div class="name">{{comment.name}}</div>
-                <div class="date">{{comment.date}}</div>
+    <div class="row mt-3">
+        <div class="col-md-8 col-sm-12">
+            <div class="row">
+                <div class="col">
+                    <div class="title">{{place?.name}}</div>
+                    <div class="stars">
+                    </div>
+                    <div class="subtitle mt-2 mb-4">{{place?.short_description}}
+                    </div>
+                </div>
             </div>
 
-            <div class="comment-text">{{comment.text}}</div>
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="card">
+                        <img class="card-img-top" [src]="place?.image_url" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{place?.description}}.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <iframe
+                            [src]='map_address'
+                            height="300" frameborder="0" style="border:0; width:100%" allowfullscreen></iframe>
+                </div>
+            </div>
+
         </div>
-        <button mat-button color="primary">Añadir comentario</button>
+        <div class="col-md-4 col-sm-12">
+            <div class="row pt-5">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-primary mb-2 btn-lg">Valora el lugar</button>
+                    <div class="alert alert-warning" role="alert">
+                        Para comentar necesitas haber estado aquí.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Valoraciones</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Estas on las valoraciones de los usuarios que han estado aquí.</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" *ngFor="let review of reviews">
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <div class="image" ><img [src]="review.user?.avatar_url" class="rounded" style="width:75px; height: 75px;"></div>
+                                        </div>
+                                        <div class="col col-md-8">
+                                            <div class="name font-weight-bold">{{review?.user?.name}}</div>
+                                            <div class="stars">
+                                                <i *ngFor='let number of [1,2,3,4,5]' class="fa-star"
+                                                   [ngClass]="{fas:renderStar(number, review.valuation), far:!renderStar(number, review.valuation)}"></i>
+                                            </div>
+                                            <div class="date font-italic">{{review.created_at.toLocaleString()}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text">{{review.comment}}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+
 </div>
 

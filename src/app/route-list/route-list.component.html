@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col text-center">
         <div class="btn-group" role="group" aria-label="Filtros">
-            <button type="button" class="btn btn-outline-primary btn-lg">Mejor valoradas</button>
-            <button type="button" class="btn btn-outline-primary btn-lg">Más visitadas</button>
+            <button type="button" class="btn btn-outline-primary btn-lg">Mejor valoradas <span class="sr-only">Rutas mejor valoradas</span></button>
+            <button type="button" class="btn btn-outline-primary btn-lg">Más visitadas <span class="sr-only">Rutas más visitadas</span></button>
         </div>
     </div>
 </div>
@@ -15,12 +15,15 @@
     <div class="col">
         <div class="card-columns">
             <div class="card" *ngFor="let route of routes">
-                <img class="card-img-top" [src]="route.src" alt="Imagen de la ruta">
+                <img class="card-img-top" [src]="route.image_url" alt="Imagen de la ruta">
                 <div class="card-body">
-                    <h5 class="card-title">{{ route.title }}</h5>
+                    <h5 class="card-title">{{ route.name }}</h5>
+                    <div class="stars">
+                        <i *ngFor='let number of [1,2,3,4,5]' class="fa-star"
+                           [ngClass]="{fas:renderStar(number, route.valuation), far:!renderStar(number, route.valuation)}"></i> ({{route?.valuation| number:'1.2':'es'}})
+                    </div>
                     <p class="card-text">{{ route.short_description }}</p>
-                    <p class="card-text"><small class="text-muted">Último visitante hace {{ route.time }}.</small></p>
-                    <button class="btn btn-primary" [routerLink]="'ruta-del-califato'">Ver ruta</button>
+                    <button class="btn btn-primary" [routerLink]="['/rutas',route.id]">Ver ruta</button>
                 </div>
             </div>
         </div>

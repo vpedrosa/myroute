@@ -1,4 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {RoutesService} from '../shared/services/routes.service';
+import {Route} from '../shared/models/route';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Review} from '../shared/models/review';
+import {User} from '../shared/models/user';
 
 @Component({
     selector: 'app-route',
@@ -6,44 +11,41 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./route.component.scss']
 })
 export class RouteComponent implements OnInit {
+    route_id: number = null;
+    reviews: Review [] = [];
+    route: Route = null;
     star_number = 3;
-    route_images = [
-        {
-            url: 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg',
-            title: 'Título de imagen',
-            description: 'Descripción de la imagen'
-        }
-    ];
-    route_image = 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg';
-    route_description = 'La Ruta del Califato une las capitales del al-Andalus califal y nazarí siguiendo el itinerario que unía' +
-        ' en el siglo XII Córdoba y Granada. Es una cadena que eslabona alcazabas, castillos cristianos, fortalezas en parte árabes y en' +
-        ' parte cristianas, erguidas en lo más alto de los cerros.\n' +
-        '\n' +
-        'Se pueden admirar además los bellos y accidentados paisajes del Parque Natural de las Sierras Subbéticas Cordobesas, fuertes' +
-        ' y agrestes pendientes, junto con praderas y riberas por donde realizar tranquilas excursiones, siguiendo antiguos senderos, que' +
-        ' conducen a los más apartados rincones.';
+    header = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d';
+    middle = '!3d';
+    next = '!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417';
+    map_address = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d-3.60122248445914!3d37.17850625401195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417';
 
-    comments = [
-        {
-            img_url: 'https://avatars.dicebear.com/v2/female/469710a325c8f47b6a4198099f1496c7.svg',
-            text: 'El sitio me ha gustado mucho',
-            rating: 5,
-            name: 'Laura González',
-            date: '18/03/2018'
-        },
-        {
-            img_url: 'https://avatars.dicebear.com/v2/female/4a033895e4c5f181146792f46fd26e8e.svg',
-            text: 'Lo recomiendo para familias y turistas',
-            name: 'Marta Gámez',
-            rating: 4,
-            date: '23/01/2018'
-        },
-    ];
+    private sub: any;
 
-    constructor() {
+    constructor(private _route_service: RoutesService, private _route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.sub = this._route.params.subscribe(params => {
+            this.route_id = +params['id'];
+            this.getRoute();
+        });
+    }
+
+    getRoute() {
+        this._route_service.getRoute(this.route_id).subscribe(
+            result => {
+                this.route = new Route(result.id, result.name, result.short_description, result.description, result.image_url, result.valuation);
+                for (const review of result.reviews) {
+                    this.reviews.push(new Review(review.id, review.comment, review.valuation, new Date(review.created_at), review.user_id,
+                        new User(review.user.id, review.user.name, review.user.email, review.user.avatar_url, '')));
+                }
+
+                this.map_address = this.header + result.longitude + this.middle + result.latitude + this.next;
+            },
+            error => {
+                console.log('error.', error);
+            });
     }
 
     renderStar(index: number, stars: number) {

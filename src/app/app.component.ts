@@ -9,9 +9,9 @@ import {NavigationEnd, Router} from '@angular/router';
 export class AppComponent implements OnInit {
     menu_items = [
         {route: '/', text: 'Home'},
-        {route: '/rutas', text: 'Lugares'},
+        {route: '/lugares', text: 'Lugares'},
         {route: '/rutas', text: 'Rutas'},
-        {route: '/proponer-ruta', text: 'Proponer ruta'},
+        {route: '/propon-tu', text: 'Propón tú'},
         {route: '/login', text: 'Perfil'},
     ];
 
