@@ -15,31 +15,12 @@ export class RouteComponent implements OnInit {
     reviews: Review [] = [];
     route: Route = null;
     star_number = 3;
-    private sub: any;
-    route_images = [
-        {
-            url: 'https://www.turinea.com/uploads/fotos/foto_1548_c.jpg',
-            title: 'Título de imagen',
-            description: 'Descripción de la imagen'
-        }
-    ];
+    header = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d';
+    middle = '!3d';
+    next = '!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417';
+    map_address = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d-3.60122248445914!3d37.17850625401195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417';
 
-    comments = [
-        {
-            img_url: 'https://avatars.dicebear.com/v2/female/469710a325c8f47b6a4198099f1496c7.svg',
-            text: 'El sitio me ha gustado mucho',
-            rating: 5,
-            name: 'Laura González',
-            date: '18/03/2018'
-        },
-        {
-            img_url: 'https://avatars.dicebear.com/v2/female/4a033895e4c5f181146792f46fd26e8e.svg',
-            text: 'Lo recomiendo para familias y turistas',
-            name: 'Marta Gámez',
-            rating: 4,
-            date: '23/01/2018'
-        },
-    ];
+    private sub: any;
 
     constructor(private _route_service: RoutesService, private _route: ActivatedRoute) {
     }
@@ -59,6 +40,8 @@ export class RouteComponent implements OnInit {
                     this.reviews.push(new Review(review.id, review.comment, review.valuation, new Date(review.created_at), review.user_id,
                         new User(review.user.id, review.user.name, review.user.email, review.user.avatar_url, '')));
                 }
+
+                this.map_address = this.header + result.longitude + this.middle + result.latitude + this.next;
             },
             error => {
                 console.log('error.', error);

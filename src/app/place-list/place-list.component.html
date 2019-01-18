@@ -23,7 +23,7 @@
                [ngClass]="{fas:renderStar(number, place.valuation), far:!renderStar(number, place.valuation)}"></i> ({{place?.valuation| number:'1.2':'es'}})
           </div>
           <p class="card-text">{{ place.short_description }}</p>
-          <button class="btn btn-primary" [routerLink]="['/lugares',place.id]">Ver ruta</button>
+          <button class="btn btn-primary" [routerLink]="['/lugares',place.id]">Ver lugar</button>
         </div>
       </div>
     </div>

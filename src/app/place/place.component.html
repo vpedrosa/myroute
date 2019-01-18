@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col">
                     <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.9143558299256!2d-3.60122248445914!3d37.17850625401195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcbf8007fb1d%3A0x1e79fa11b52eb83e!2sCalle+Gran+V%C3%ADa+de+Col%C3%B3n%2C+23%2C+18001+Granada!5e0!3m2!1ses!2ses!4v1541756954417"
+                            [src]='map_address'
                             height="300" frameborder="0" style="border:0; width:100%" allowfullscreen></iframe>
                 </div>
             </div>
@@ -33,9 +33,9 @@
         <div class="col-md-4 col-sm-12">
             <div class="row pt-5">
                 <div class="col text-center">
-                    <button type="button" class="btn btn-primary mb-2 btn-lg">Valora la ruta</button>
+                    <button type="button" class="btn btn-primary mb-2 btn-lg">Valora el lugar</button>
                     <div class="alert alert-warning" role="alert">
-                        Para comentar necesitas haber estado en al menos el 50% de los lugares.
+                        Para comentar necesitas haber estado aquí.
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Valoraciones</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Estas on las valoraciones de los usuarios que han realizado la ruta</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Estas on las valoraciones de los usuarios que han estado aquí.</h6>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item" *ngFor="let review of reviews">
                                     <div class="row">

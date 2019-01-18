@@ -10,12 +10,12 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" *ngFor="let menu_item of menu_items" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact:true}" #rla="routerLinkActive">
-                <a class="nav-link" [routerLink]="menu_item.route">{{menu_item.text}} <span class="sr-only" *ngIf="rla.isActive">(current)</span></a>
+                <a class="nav-link" [routerLink]="menu_item.route" [title]="menu_item.text">{{menu_item.text}} <span class="sr-only" *ngIf="rla.isActive">(página actual)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0 btn-outline-light" type="submit">Buscar</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Buscar"><span class="sr-only">Puedes buscar por una ruta o lugar.</span>
+            <button class="btn btn-outline-success my-2 my-sm-0 btn-outline-light" type="submit" title="Realizar Búsqueda">Buscar</button>
         </form>
     </div>
 </nav>
@@ -23,11 +23,11 @@
     <router-outlet></router-outlet>
     <div class="row mt-4">
         <div class="col text-center">
-            <div class="rounded-button" [routerLink]="'rutas'">
-                <div class="overlay"><div class="text">Lugares</div></div>
+            <div class="rounded-button" [routerLink]="'rutas'" role="button" aria-pressed="false">
+                <div class="overlay"><div class="text" >Lugares</div></div>
                 <img src="/assets/img/place.svg">
             </div>
-            <div class="rounded-button" [routerLink]="'rutas'">
+            <div class="rounded-button" [routerLink]="'rutas'" role="button" aria-pressed="false">
                 <img src="/assets/img/waypoint.svg">
                 <div class="overlay"><div class="text">Rutas</div></div>
             </div>
@@ -44,9 +44,9 @@
             </div>
             <div class="row">
                 <div class="col social-links">
-                    <a href="https://twitter.com"><i class="fab fa-twitter fa-2x mr-2"></i></a>
-                    <a href="https://facebook.com"><i class="fab fa-facebook fa-2x mr-2"></i></a>
-                    <a href="https://instagram.com"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="https://twitter.com" title="Ir a Twitter de Garvam"><i class="fab fa-twitter fa-2x mr-2"></i></a>
+                    <a href="https://facebook.com" title="Ir a Faebook de Garvam"><i class="fab fa-facebook fa-2x mr-2"></i></a>
+                    <a href="https://instagram.com" title="Ir a Instagram de Garvam"><i class="fab fa-instagram fa-2x"></i></a>
                 </div>
             </div>
         </div>
