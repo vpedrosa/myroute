@@ -17,9 +17,9 @@
             <div class="row mb-3">
                 <div class="col">
                     <div class="card">
-                        <img class="card-img-top" [src]="route?.image_url" alt="Card image cap">
+                        <img class="card-img-top" [src]="route?.image_url || ''" alt="Card image cap">
                         <div class="card-body">
-                            <p class="card-text">{{route?.description}}.</p>
+                            <p class="card-text">{{route?.description | safe: 'html'}}.</p>
                             <p class="text-right"><a href="#" class="btn btn-primary">Iniciar Ruta</a></p>
                         </div>
                     </div>
@@ -27,9 +27,12 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <iframe
-                            [src]='map_address'
-                            height="300" frameborder="0" style="border:0; width:100%" allowfullscreen></iframe>
+                    <h3>Lugares de la Ruta</h3>
+                    <div class="list-group">
+                        <div *ngFor="let place of route?.places" class="list-group-item list-group-item-action selectable" [routerLink]="'/lugares/'+place.id" role="button">
+                            {{place.name}}
+                        </div>
+                    </div>
                 </div>
             </div>
 

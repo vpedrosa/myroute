@@ -23,7 +23,6 @@ export class ApiService {
 
 
     get(url: string, query?: string, update_token: boolean = true): Observable<any> {
-        console.log('queriying ' + this.api_route + url);
         return this._http_client.get(this.api_route + url, {
                 headers: new HttpHeaders().set('Authorization', this._authentication_service.token),
                 observe: 'response'
