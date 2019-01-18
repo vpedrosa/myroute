@@ -3,12 +3,17 @@
         <div class="card mt-5">
             <div class="card-body">
                 <h3 class="card-title">Iniciar sesión</h3>
-                <form>
+                <form [formGroup]="login_form" (ngSubmit)="onSubmit()">
+                    <div class="row" *ngIf="login_error">
+                        <div class="col">
+                            <div class="alert alert-warning">Email o contraseña inválidos.</div>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <div class="col">
                             <label class="sr-only" for="email">Email</label>
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="email" placeholder="Email">
+                                <input type="text" class="form-control" id="email" placeholder="Email" formControlName="email">
                             </div>
                         </div>
                     </div>
@@ -16,7 +21,7 @@
                         <div class="col">
                             <label class="sr-only" for="password">Contraseña</label>
                             <div class="input-group mb-2">
-                                <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                                <input type="password" class="form-control" id="password" placeholder="Contraseña" formControlName="password">
                             </div>
                         </div>
                     </div>

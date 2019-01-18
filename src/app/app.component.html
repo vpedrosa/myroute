@@ -12,6 +12,13 @@
                 [routerLinkActiveOptions]="{exact:true}" #rla="routerLinkActive">
                 <a class="nav-link" [routerLink]="menu_item.route" [title]="menu_item.text">{{menu_item.text}} <span class="sr-only" *ngIf="rla.isActive">(página actual)</span></a>
             </li>
+            <li *ngIf="logged" class="nav-item" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}" #rla="routerLinkActive">
+                <a class="nav-link" [routerLink]="'/login'" [title]="'Iniciar Sesión'">Iniciar Sesión <span class="sr-only" *ngIf="rla.isActive">(página actual)</span></a>
+            </li>
+            <li *ngIf="!logged" class="nav-item" style="cursor: pointer">
+                <a class="nav-link" (click)="logout()" [title]="'Cerrar Sesión'">Cerrar Sesión</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Buscar"><span class="sr-only">Puedes buscar por una ruta o lugar.</span>

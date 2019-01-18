@@ -25,6 +25,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 import localeEs from '@angular/common/locales/es';
 import {registerLocaleData} from '@angular/common';
+import { SafePipe } from './safe.pipe';
+import { AgmCoreModule} from '@agm/core';
 
 registerLocaleData(localeEs, 'es');
 
@@ -42,7 +44,8 @@ registerLocaleData(localeEs, 'es');
         ProposalComponent,
         ProfileComponent,
         RouteProposalComponent,
-        PlaceListComponent
+        PlaceListComponent,
+        SafePipe,
     ],
     imports: [
         BrowserModule,
@@ -55,7 +58,12 @@ registerLocaleData(localeEs, 'es');
         MatGridListModule,
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyAOf92oT400W3v_kaVKpoXmnMauxDdEWZU'
+        }),
+        FormsModule,
+        ReactiveFormsModule,
     ],
     providers: [
         HttpClient,
